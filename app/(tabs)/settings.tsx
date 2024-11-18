@@ -8,6 +8,22 @@ import { Settings as SettingsIcon } from "@styled-icons/material-rounded/Setting
 
 const paperProvider = <PaperProvider />;
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 16,
+  },
+  description: {
+    marginVertical: 16,
+  },
+  settingItem: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginVertical: 8,
+  },
+});
+
 export default function SettingsScreen() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isNotificationsEnabled, setIsNotificationsEnabled] = useState(true);
@@ -43,19 +59,3 @@ export default function SettingsScreen() {
     </ThemedView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-  },
-  description: {
-    marginVertical: 16,
-  },
-  settingItem: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginVertical: 8,
-  },
-});

@@ -6,7 +6,22 @@ import { ThemedView } from "@/components/ThemedView";
 import { ReceiptLong as TransactionsIcon } from "@styled-icons/material-rounded/ReceiptLong";
 import BitcoinService from "@/module/faircoin/FairCoinService";
 
-const paperProvider = <PaperProvider />;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 16,
+  },
+  description: {
+    marginVertical: 16,
+  },
+  transactionItem: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingVertical: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: "#ccc",
+  },
+});
 
 export default function TransactionsScreen() {
   const [transactions, setTransactions] = useState([]);
@@ -45,20 +60,3 @@ export default function TransactionsScreen() {
     </ThemedView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-  },
-  description: {
-    marginVertical: 16,
-  },
-  transactionItem: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    paddingVertical: 8,
-    borderBottomWidth: 1,
-    borderBottomColor: "#ccc",
-  },
-});

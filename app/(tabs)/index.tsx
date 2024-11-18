@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const ParallaxScrollViewComponent = (
+const ParallaxScrollViewComponent = React.memo(
   <ParallaxScrollView
     headerBackgroundColor={{ dark: "#A1CEDC", light: "#A1CEDC" }}
     headerImage={

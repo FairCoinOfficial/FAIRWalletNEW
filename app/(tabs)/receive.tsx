@@ -9,6 +9,30 @@ import BitcoinService from "@/module/faircoin/FairCoinService";
 
 const paperProvider = <PaperProvider />;
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 16,
+  },
+  description: {
+    marginVertical: 16,
+  },
+  addressContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 16,
+  },
+  address: {
+    flex: 1,
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  copyButton: {
+    marginLeft: 8,
+    color: "blue",
+  },
+});
+
 export default function ReceiveScreen() {
   const [address, setAddress] = useState("");
 
@@ -47,27 +71,3 @@ export default function ReceiveScreen() {
     </ThemedView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-  },
-  description: {
-    marginVertical: 16,
-  },
-  addressContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginTop: 16,
-  },
-  address: {
-    flex: 1,
-    fontSize: 16,
-    fontWeight: "bold",
-  },
-  copyButton: {
-    marginLeft: 8,
-    color: "blue",
-  },
-});

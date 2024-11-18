@@ -5,6 +5,20 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { getFairCoinPrice } from "@/module/faircoin/FairCoinService";
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 16,
+  },
+  description: {
+    marginVertical: 16,
+  },
+  price: {
+    fontSize: 24,
+    fontWeight: "bold",
+  },
+});
+
 export default function FairCoinPriceScreen() {
   const [price, setPrice] = useState(null);
 
@@ -35,17 +49,3 @@ export default function FairCoinPriceScreen() {
     </ThemedView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-  },
-  description: {
-    marginVertical: 16,
-  },
-  price: {
-    fontSize: 24,
-    fontWeight: "bold",
-  },
-});

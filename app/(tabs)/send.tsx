@@ -6,6 +6,28 @@ import { ThemedView } from "@/components/ThemedView";
 import { Send as SendIcon } from "@styled-icons/material-rounded/Send";
 import BitcoinService from "@/module/faircoin/FairCoinService";
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 16,
+  },
+  description: {
+    marginVertical: 16,
+  },
+  input: {
+    height: 40,
+    borderColor: "gray",
+    borderWidth: 1,
+    marginBottom: 12,
+    paddingHorizontal: 8,
+  },
+  status: {
+    marginTop: 16,
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+});
+
 export default function SendScreen() {
   const [recipientAddress, setRecipientAddress] = useState("");
   const [amount, setAmount] = useState("");
@@ -55,25 +77,3 @@ export default function SendScreen() {
     </ThemedView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-  },
-  description: {
-    marginVertical: 16,
-  },
-  input: {
-    height: 40,
-    borderColor: "gray",
-    borderWidth: 1,
-    marginBottom: 12,
-    paddingHorizontal: 8,
-  },
-  status: {
-    marginTop: 16,
-    fontSize: 16,
-    fontWeight: "bold",
-  },
-});

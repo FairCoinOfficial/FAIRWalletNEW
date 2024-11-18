@@ -13,6 +13,21 @@ type RootStackParamList = {
   FairCoinPrice: undefined; // Added for navigation to FairCoinPriceScreen
 };
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 16,
+  },
+  description: {
+    marginVertical: 16,
+  },
+  buttonContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    marginTop: 16,
+  },
+});
+
 export default function WalletScreen() {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
@@ -49,18 +64,3 @@ export default function WalletScreen() {
     </ThemedView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-  },
-  description: {
-    marginVertical: 16,
-  },
-  buttonContainer: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    marginTop: 16,
-  },
-});
