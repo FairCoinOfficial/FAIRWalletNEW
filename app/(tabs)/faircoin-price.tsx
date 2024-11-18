@@ -5,6 +5,8 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { getFairCoinPrice } from "@/module/faircoin/FairCoinService";
 
+const paperProvider = <PaperProvider />;
+
 export default function FairCoinPriceScreen() {
   const [price, setPrice] = useState(null);
 
@@ -22,19 +24,17 @@ export default function FairCoinPriceScreen() {
   }, []);
 
   return (
-    <PaperProvider>
-      <ThemedView style={styles.container}>
-        <ThemedText type="title">FairCoin Price</ThemedText>
-        <ThemedText style={styles.description}>
-          Check the current price of FairCoin.
-        </ThemedText>
-        {price !== null ? (
-          <ThemedText style={styles.price}>${price}</ThemedText>
-        ) : (
-          <ThemedText>Loading...</ThemedText>
-        )}
-      </ThemedView>
-    </PaperProvider>
+    <ThemedView style={styles.container}>
+      <ThemedText type="title">FairCoin Price</ThemedText>
+      <ThemedText style={styles.description}>
+        Check the current price of FairCoin.
+      </ThemedText>
+      {price !== null ? (
+        <ThemedText style={styles.price}>${price}</ThemedText>
+      ) : (
+        <ThemedText>Loading...</ThemedText>
+      )}
+    </ThemedView>
   );
 }
 

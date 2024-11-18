@@ -13,42 +13,42 @@ type RootStackParamList = {
   FairCoinPrice: undefined; // Added for navigation to FairCoinPriceScreen
 };
 
+const paperProvider = <PaperProvider />;
+
 export default function WalletScreen() {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
   return (
-    <PaperProvider>
-      <ThemedView style={styles.container}>
-        <ThemedText type="title">Wallet</ThemedText>
-        <ThemedText style={styles.description}>
-          Manage your FairCoins by sending, receiving, and viewing transactions.
-        </ThemedText>
-        <WalletIcon width={24} height={24} />
-        <View style={styles.buttonContainer}>
-          <Button mode="contained" onPress={() => navigation.navigate("Send")}>
-            Send
-          </Button>
-          <Button
-            mode="contained"
-            onPress={() => navigation.navigate("Receive")}
-          >
-            Receive
-          </Button>
-          <Button
-            mode="contained"
-            onPress={() => navigation.navigate("Transactions")}
-          >
-            Transactions
-          </Button>
-          <Button
-            mode="contained"
-            onPress={() => navigation.navigate("FairCoinPrice")}
-          >
-            FairCoin Price
-          </Button>
-        </View>
-      </ThemedView>
-    </PaperProvider>
+    <ThemedView style={styles.container}>
+      <ThemedText type="title">Wallet</ThemedText>
+      <ThemedText style={styles.description}>
+        Manage your FairCoins by sending, receiving, and viewing transactions.
+      </ThemedText>
+      <WalletIcon width={24} height={24} />
+      <View style={styles.buttonContainer}>
+        <Button mode="contained" onPress={() => navigation.navigate("Send")}>
+          Send
+        </Button>
+        <Button
+          mode="contained"
+          onPress={() => navigation.navigate("Receive")}
+        >
+          Receive
+        </Button>
+        <Button
+          mode="contained"
+          onPress={() => navigation.navigate("Transactions")}
+        >
+          Transactions
+        </Button>
+        <Button
+          mode="contained"
+          onPress={() => navigation.navigate("FairCoinPrice")}
+        >
+          FairCoin Price
+        </Button>
+      </View>
+    </ThemedView>
   );
 }
 

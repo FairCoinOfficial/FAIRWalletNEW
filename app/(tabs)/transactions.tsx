@@ -6,6 +6,8 @@ import { ThemedView } from "@/components/ThemedView";
 import { ReceiptLong as TransactionsIcon } from "@styled-icons/material-rounded/ReceiptLong";
 import BitcoinService from "@/module/faircoin/FairCoinService";
 
+const paperProvider = <PaperProvider />;
+
 export default function TransactionsScreen() {
   const [transactions, setTransactions] = useState([]);
 
@@ -24,25 +26,23 @@ export default function TransactionsScreen() {
   }, []);
 
   return (
-    <PaperProvider>
-      <ThemedView style={styles.container}>
-        <ThemedText type="title">Transactions</ThemedText>
-        <ThemedText style={styles.description}>
-          View your transaction history below.
-        </ThemedText>
-        <TransactionsIcon width={24} height={24} />
-        <FlatList
-          data={transactions}
-          keyExtractor={(item) => item.txid}
-          renderItem={({ item }) => (
-            <ThemedView style={styles.transactionItem}>
-              <ThemedText>{item.txid}</ThemedText>
-              <ThemedText>{item.value}</ThemedText>
-            </ThemedView>
-          )}
-        />
-      </ThemedView>
-    </PaperProvider>
+    <ThemedView style={styles.container}>
+      <ThemedText type="title">Transactions</ThemedText>
+      <ThemedText style={styles.description}>
+        View your transaction history below.
+      </ThemedText>
+      <TransactionsIcon width={24} height={24} />
+      <FlatList
+        data={transactions}
+        keyExtractor={(item) => item.txid}
+        renderItem={({ item }) => (
+          <ThemedView style={styles.transactionItem}>
+            <ThemedText>{item.txid}</ThemedText>
+            <ThemedText>{item.value}</ThemedText>
+          </ThemedView>
+        )}
+      />
+    </ThemedView>
   );
 }
 

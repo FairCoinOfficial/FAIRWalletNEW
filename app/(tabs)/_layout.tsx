@@ -20,6 +20,23 @@ import SettingsScreen from "@/app/(tabs)/settings";
 import FairCoinPriceScreen from "@/app/(tabs)/faircoin-price";
 import WalletScreen from "@/app/(tabs)/wallet";
 
+const renderIcon = ({ route, focused, color }) => {
+  switch (route.key) {
+    case "home":
+      return <HomeIcon size={24} color={color} />;
+    case "explore":
+      return <RocketIcon size={24} color={color} />;
+    case "settings":
+      return <CogIcon size={24} color={color} />;
+    case "faircoin-price":
+      return <ChartLineIcon size={24} color={color} />;
+    case "wallet":
+      return <WalletIcon size={24} color={color} />;
+    default:
+      return null;
+  }
+};
+
 export default function TabLayout() {
   const colorScheme = useColorScheme();
   const [index, setIndex] = useState(0);
@@ -42,23 +59,6 @@ export default function TabLayout() {
     "faircoin-price": FairCoinPriceScreen,
     wallet: WalletScreen,
   });
-
-  const renderIcon = ({ route, focused, color }) => {
-    switch (route.key) {
-      case "home":
-        return <HomeIcon size={24} color={color} />;
-      case "explore":
-        return <RocketIcon size={24} color={color} />;
-      case "settings":
-        return <CogIcon size={24} color={color} />;
-      case "faircoin-price":
-        return <ChartLineIcon size={24} color={color} />;
-      case "wallet":
-        return <WalletIcon size={24} color={color} />;
-      default:
-        return null;
-    }
-  };
 
   return (
     <PaperProvider>

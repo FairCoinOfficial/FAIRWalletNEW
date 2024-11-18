@@ -111,8 +111,8 @@ const fetchFairCoinPrice = async () => {
 
 const getFairCoinPrice = async () => {
     try {
-        const response = await axios.get("https://api.coingecko.com/api/v3/simple/price?ids=faircoin&vs_currencies=usd");
-        return response.data.faircoin.usd;
+        const response = await axios.get("https://peable-website-notion-server.vercel.app/api/faircoin/price");
+        return response.data.price;
     } catch (error) {
         console.error("Error fetching FairCoin price:", error);
         throw error;

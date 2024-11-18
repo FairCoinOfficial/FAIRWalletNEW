@@ -6,6 +6,8 @@ import { ThemedView } from "@/components/ThemedView";
 import { Send as SendIcon } from "@styled-icons/material-rounded/Send";
 import BitcoinService from "@/module/faircoin/FairCoinService";
 
+const paperProvider = <PaperProvider />;
+
 export default function SendScreen() {
   const [recipientAddress, setRecipientAddress] = useState("");
   const [amount, setAmount] = useState("");
@@ -27,34 +29,32 @@ export default function SendScreen() {
   };
 
   return (
-    <PaperProvider>
-      <ThemedView style={styles.container}>
-        <ThemedText type="title">Send FairCoins</ThemedText>
-        <ThemedText style={styles.description}>
-          Enter the recipient's address and the amount to send.
-        </ThemedText>
-        <SendIcon width={24} height={24} />
-        <TextInput
-          style={styles.input}
-          placeholder="Recipient Address"
-          value={recipientAddress}
-          onChangeText={setRecipientAddress}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Amount"
-          value={amount}
-          onChangeText={setAmount}
-          keyboardType="numeric"
-        />
-        <Button mode="contained" onPress={handleSend}>
-          Send
-        </Button>
-        {transactionStatus ? (
-          <ThemedText style={styles.status}>{transactionStatus}</ThemedText>
-        ) : null}
-      </ThemedView>
-    </PaperProvider>
+    <ThemedView style={styles.container}>
+      <ThemedText type="title">Send FairCoins</ThemedText>
+      <ThemedText style={styles.description}>
+        Enter the recipient's address and the amount to send.
+      </ThemedText>
+      <SendIcon width={24} height={24} />
+      <TextInput
+        style={styles.input}
+        placeholder="Recipient Address"
+        value={recipientAddress}
+        onChangeText={setRecipientAddress}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Amount"
+        value={amount}
+        onChangeText={setAmount}
+        keyboardType="numeric"
+      />
+      <Button mode="contained" onPress={handleSend}>
+        Send
+      </Button>
+      {transactionStatus ? (
+        <ThemedText style={styles.status}>{transactionStatus}</ThemedText>
+      ) : null}
+    </ThemedView>
   );
 }
 

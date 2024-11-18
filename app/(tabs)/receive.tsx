@@ -6,6 +6,8 @@ import { ThemedView } from "@/components/ThemedView";
 import { Inbox as ReceiveIcon } from "@styled-icons/material-rounded/Inbox";
 import BitcoinService from "@/module/faircoin/FairCoinService";
 
+const paperProvider = <PaperProvider />;
+
 export default function ReceiveScreen() {
   const [address, setAddress] = useState("");
 
@@ -29,21 +31,19 @@ export default function ReceiveScreen() {
   };
 
   return (
-    <PaperProvider>
-      <ThemedView style={styles.container}>
-        <ThemedText type="title">Receive FairCoins</ThemedText>
-        <ThemedText style={styles.description}>
-          Share your address to receive FairCoins.
-        </ThemedText>
-        <ReceiveIcon width={24} height={24} />
-        <View style={styles.addressContainer}>
-          <ThemedText style={styles.address}>{address}</ThemedText>
-          <TouchableOpacity onPress={copyToClipboard}>
-            <ThemedText style={styles.copyButton}>Copy</ThemedText>
-          </TouchableOpacity>
-        </View>
-      </ThemedView>
-    </PaperProvider>
+    <ThemedView style={styles.container}>
+      <ThemedText type="title">Receive FairCoins</ThemedText>
+      <ThemedText style={styles.description}>
+        Share your address to receive FairCoins.
+      </ThemedText>
+      <ReceiveIcon width={24} height={24} />
+      <View style={styles.addressContainer}>
+        <ThemedText style={styles.address}>{address}</ThemedText>
+        <TouchableOpacity onPress={copyToClipboard}>
+          <ThemedText style={styles.copyButton}>Copy</ThemedText>
+        </TouchableOpacity>
+      </View>
+    </ThemedView>
   );
 }
 

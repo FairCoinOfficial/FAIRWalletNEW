@@ -5,6 +5,8 @@ import { ThemedView } from "@/components/ThemedView";
 
 import { Settings as SettingsIcon } from "@styled-icons/material-rounded/Settings";
 
+const paperProvider = <PaperProvider />;
+
 export default function SettingsScreen() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isNotificationsEnabled, setIsNotificationsEnabled] = useState(true);
@@ -14,32 +16,30 @@ export default function SettingsScreen() {
     setIsNotificationsEnabled((previousState) => !previousState);
 
   return (
-    <PaperProvider>
-      <ThemedView style={styles.container}>
-        <ThemedText type="title">Settings</ThemedText>
-        <ThemedText style={styles.description}>
-          Configure your FAIRWallet settings below.
-        </ThemedText>
-        <SettingsIcon width={24} height={24} />
-        <View style={styles.settingItem}>
-          <ThemedText>Dark Mode</ThemedText>
-          <Switch
-            onValueChange={toggleDarkMode}
-            value={isDarkMode}
-          />
-        </View>
-        <View style={styles.settingItem}>
-          <ThemedText>Enable Notifications</ThemedText>
-          <Switch
-            onValueChange={toggleNotifications}
-            value={isNotificationsEnabled}
-          />
-        </View>
-        <Button mode="contained" onPress={() => console.log("Settings saved")}>
-          Save Settings
-        </Button>
-      </ThemedView>
-    </PaperProvider>
+    <ThemedView style={styles.container}>
+      <ThemedText type="title">Settings</ThemedText>
+      <ThemedText style={styles.description}>
+        Configure your FAIRWallet settings below.
+      </ThemedText>
+      <SettingsIcon width={24} height={24} />
+      <View style={styles.settingItem}>
+        <ThemedText>Dark Mode</ThemedText>
+        <Switch
+          onValueChange={toggleDarkMode}
+          value={isDarkMode}
+        />
+      </View>
+      <View style={styles.settingItem}>
+        <ThemedText>Enable Notifications</ThemedText>
+        <Switch
+          onValueChange={toggleNotifications}
+          value={isNotificationsEnabled}
+        />
+      </View>
+      <Button mode="contained" onPress={() => console.log("Settings saved")}>
+        Save Settings
+      </Button>
+    </ThemedView>
   );
 }
 
