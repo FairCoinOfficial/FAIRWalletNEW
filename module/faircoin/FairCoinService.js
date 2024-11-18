@@ -96,10 +96,22 @@ const getTxInfo = async (tx) => {
         return false;
     }
 }
+
+const fetchFairCoinPrice = async () => {
+    try {
+        const response = await axios.get("https://api.coingecko.com/api/v3/simple/price?ids=faircoin&vs_currencies=usd");
+        return response.data.faircoin.usd;
+    } catch (error) {
+        console.error("Error fetching FairCoin price:", error);
+        throw error;
+    }
+};
+
 const BitcoinService = {
     pushTx,
     getTransactions,
     balance,
     getTxInfo,
+    fetchFairCoinPrice,
 }
 export default BitcoinService;
