@@ -10,6 +10,7 @@ type RootStackParamList = {
   Send: undefined;
   Receive: undefined;
   Transactions: undefined;
+  FairCoinPrice: undefined; // Added for navigation to FairCoinPriceScreen
 };
 
 export default function WalletScreen() {
@@ -38,6 +39,12 @@ export default function WalletScreen() {
             onPress={() => navigation.navigate("Transactions")}
           >
             Transactions
+          </Button>
+          <Button
+            mode="contained"
+            onPress={() => navigation.navigate("FairCoinPrice")}
+          >
+            FairCoin Price
           </Button>
         </View>
       </ThemedView>

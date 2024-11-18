@@ -3,6 +3,7 @@ import { StyleSheet } from "react-native";
 import { Provider as PaperProvider, Text } from "react-native-paper";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
+import { getFairCoinPrice } from "@/module/faircoin/FairCoinService";
 
 export default function FairCoinPriceScreen() {
   const [price, setPrice] = useState(null);
@@ -10,9 +11,8 @@ export default function FairCoinPriceScreen() {
   useEffect(() => {
     const fetchFairCoinPrice = async () => {
       try {
-        const response = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=faircoin&vs_currencies=usd");
-        const data = await response.json();
-        setPrice(data.faircoin.usd);
+        const price = await getFairCoinPrice();
+        setPrice(price);
       } catch (error) {
         console.error("Error fetching FairCoin price:", error);
       }
