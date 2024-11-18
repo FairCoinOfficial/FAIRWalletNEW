@@ -1,6 +1,6 @@
 import { StyleSheet, View } from "react-native";
 import { useNavigation, NavigationProp } from "@react-navigation/native";
-import { Provider as PaperProvider, Button } from "react-native-paper";
+import { Button } from "react-native-paper";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 
@@ -12,8 +12,6 @@ type RootStackParamList = {
   Transactions: undefined;
   FairCoinPrice: undefined; // Added for navigation to FairCoinPriceScreen
 };
-
-const paperProvider = <PaperProvider />;
 
 export default function WalletScreen() {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();

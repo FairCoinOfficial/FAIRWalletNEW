@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { StyleSheet, View, Switch } from "react-native";
 import { Provider as PaperProvider, Text, Button } from "react-native-paper";
 import { ThemedText } from "@/components/ThemedText";

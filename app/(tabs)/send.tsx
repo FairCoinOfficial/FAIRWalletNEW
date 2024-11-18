@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { StyleSheet, TextInput, View } from "react-native";
-import { Provider as PaperProvider, Button } from "react-native-paper";
+import { Button } from "react-native-paper";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { Send as SendIcon } from "@styled-icons/material-rounded/Send";
 import BitcoinService from "@/module/faircoin/FairCoinService";
-
-const paperProvider = <PaperProvider />;
 
 export default function SendScreen() {
   const [recipientAddress, setRecipientAddress] = useState("");

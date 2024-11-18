@@ -10,8 +10,8 @@ const faircoinNet = {
     scriptHash: 0xc4,
     wif: 0xd4,
 };
-const faircoinExplorer = 'https://blockchain.fairco.in/';
-const faircoinBackend = 'http://27.0.175.48:3000/api/';
+const faircoinExplorer = process.env.FAIRCOIN_EXPLORER_URL || 'https://blockchain.fairco.in/';
+const faircoinBackend = process.env.FAIRCOIN_BACKEND_URL || 'http://27.0.175.48:3000/api/';
 /**
  * fetch the transaction information
  *

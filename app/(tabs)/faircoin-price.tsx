@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import { StyleSheet } from "react-native";
-import { Provider as PaperProvider, Text } from "react-native-paper";
+import { Text } from "react-native-paper";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { getFairCoinPrice } from "@/module/faircoin/FairCoinService";
-
-const paperProvider = <PaperProvider />;
 
 export default function FairCoinPriceScreen() {
   const [price, setPrice] = useState(null);

@@ -131,7 +131,7 @@ const ParallaxScrollViewComponent = (
 );
 
 export default function HomeScreen() {
-  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>(); // Pd9e9
 
   return <PaperProvider>{ParallaxScrollViewComponent}</PaperProvider>;
 }
