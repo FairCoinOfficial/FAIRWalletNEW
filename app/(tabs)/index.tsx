@@ -21,6 +21,42 @@ const recentTransactions = [
   { id: "3", description: "Sent 2 FairCoins", amount: "-2 FC" },
 ];
 
+const styles = StyleSheet.create({
+  titleContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+    marginBottom: 16,
+  },
+  stepContainer: {
+    gap: 8,
+    marginBottom: 16,
+  },
+  buttonContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    marginTop: 16,
+  },
+  reactLogo: {
+    height: 178,
+    width: 290,
+    bottom: 0,
+    left: 0,
+    position: "absolute",
+  },
+  transactionsContainer: {
+    marginTop: 16,
+    paddingHorizontal: 16,
+  },
+  transactionItem: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingVertical: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: "#ccc",
+  },
+});
+
 const ParallaxScrollViewComponent = (
   <ParallaxScrollView
     headerBackgroundColor={{ dark: "#A1CEDC", light: "#A1CEDC" }}
@@ -99,39 +135,3 @@ export default function HomeScreen() {
 
   return <PaperProvider>{ParallaxScrollViewComponent}</PaperProvider>;
 }
-
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 8,
-    marginBottom: 16,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 16,
-  },
-  buttonContainer: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    marginTop: 16,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: "absolute",
-  },
-  transactionsContainer: {
-    marginTop: 16,
-    paddingHorizontal: 16,
-  },
-  transactionItem: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    paddingVertical: 8,
-    borderBottomWidth: 1,
-    borderBottomColor: "#ccc",
-  },
-});
