@@ -4,7 +4,7 @@ import { StyleSheet } from "react-native";
 import { Text } from "react-native-paper";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
-import { getFairCoinPrice } from "@/module/faircoin/FairCoinService";
+import getFairCoinPrice from "@/module/faircoin/FairCoinService";
 
 const styles = StyleSheet.create({
   container: {
@@ -21,12 +21,12 @@ const styles = StyleSheet.create({
 });
 
 export default function FairCoinPriceScreen() {
-  const [price, setPrice] = useState(null);
+  const [price, setPrice] = useState<number | null>(null);
 
   useEffect(() => {
     const fetchFairCoinPrice = async () => {
       try {
-        const price = await getFairCoinPrice();
+        const price = await getFairCoinPrice.getFairCoinPrice();
         setPrice(price);
       } catch (error) {
         console.error("Error fetching FairCoin price:", error);

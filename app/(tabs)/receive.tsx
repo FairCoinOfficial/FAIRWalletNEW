@@ -7,7 +7,9 @@ import { ThemedView } from "@/components/ThemedView";
 import { Inbox as ReceiveIcon } from "@styled-icons/material-rounded/Inbox";
 import BitcoinService from "@/module/faircoin/FairCoinService";
 
-const paperProvider = <PaperProvider />;
+const paperProvider = (
+  <PaperProvider children={undefined}>{/* Add children here */}</PaperProvider>
+);
 
 const styles = StyleSheet.create({
   container: {

@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const ParallaxScrollViewComponent = React.memo(
+const ParallaxScrollViewComponent = React.memo(() => (
   <ParallaxScrollView
     headerBackgroundColor={{ light: "#D0D0D0", dark: "#353636" }}
     headerImage={
@@ -99,8 +99,8 @@ const ParallaxScrollViewComponent = React.memo(
       </ExternalLink>
     </Collapsible>
   </ParallaxScrollView>
-);
+));
 
 export default function TabTwoScreen() {
-  return ParallaxScrollViewComponent;
+  return <ParallaxScrollViewComponent />;
 }

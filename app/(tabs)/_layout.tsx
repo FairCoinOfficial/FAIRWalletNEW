@@ -20,7 +20,15 @@ import SettingsScreen from "@/app/(tabs)/settings";
 import FairCoinPriceScreen from "@/app/(tabs)/faircoin-price";
 import WalletScreen from "@/app/(tabs)/wallet";
 
-const renderIcon = React.memo(({ route, focused, color }) => {
+const RenderIconComponent = ({
+  route,
+  focused,
+  color,
+}: {
+  route: { key: string };
+  focused: boolean;
+  color: string;
+}) => {
   switch (route.key) {
     case "home":
       return <HomeIcon size={24} color={color} />;
@@ -35,7 +43,9 @@ const renderIcon = React.memo(({ route, focused, color }) => {
     default:
       return null;
   }
-});
+};
+
+const MemoizedRenderIcon = React.memo(RenderIconComponent);
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -69,7 +79,7 @@ export default function TabLayout() {
         navigationState={{ index, routes }}
         onIndexChange={setIndex}
         renderScene={renderScene}
-        renderIcon={renderIcon}
+        renderIcon={MemoizedRenderIcon}
       />
     </PaperProvider>
   );
