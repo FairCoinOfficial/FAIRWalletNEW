@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+
 module.exports = {
   module: {
     rules: [
@@ -10,6 +12,7 @@ module.exports = {
   resolve: {
     fallback: {
       buffer: require.resolve("buffer/"),
+      inherits: require.resolve("inherits") // P799e
     },
   },
   plugins: [
