@@ -17,7 +17,13 @@ import FairCoinPriceScreen from "@/app/(tabs)/faircoin-price";
 import WalletScreen from "@/app/(tabs)/wallet";
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
+  let colorScheme;
+  try {
+    colorScheme = useColorScheme();
+  } catch (error) {
+    console.error("Error getting color scheme:", error);
+    colorScheme = "light"; // default to light theme
+  }
   const [index, setIndex] = useState(0);
   const [routes] = useState([
     { key: "home", title: "Home", icon: "home" },

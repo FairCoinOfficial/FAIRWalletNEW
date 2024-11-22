@@ -31,6 +31,14 @@ const styles = StyleSheet.create({
 export default function WalletScreen() {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
+  const handleNavigation = (screen: keyof RootStackParamList) => {
+    try {
+      navigation.navigate(screen);
+    } catch (error) {
+      console.error(`Error navigating to ${screen}:`, error);
+    }
+  };
+
   return (
     <ThemedView style={styles.container}>
       <ThemedText type="title">Wallet</ThemedText>
@@ -39,25 +47,16 @@ export default function WalletScreen() {
       </ThemedText>
       <WalletIcon width={24} height={24} />
       <View style={styles.buttonContainer}>
-        <Button mode="contained" onPress={() => navigation.navigate("Send")}>
+        <Button mode="contained" onPress={() => handleNavigation("Send")}>
           Send
         </Button>
-        <Button
-          mode="contained"
-          onPress={() => navigation.navigate("Receive")}
-        >
+        <Button mode="contained" onPress={() => handleNavigation("Receive")}>
           Receive
         </Button>
-        <Button
-          mode="contained"
-          onPress={() => navigation.navigate("Transactions")}
-        >
+        <Button mode="contained" onPress={() => handleNavigation("Transactions")}>
           Transactions
         </Button>
-        <Button
-          mode="contained"
-          onPress={() => navigation.navigate("FairCoinPrice")}
-        >
+        <Button mode="contained" onPress={() => handleNavigation("FairCoinPrice")}>
           FairCoin Price
         </Button>
       </View>

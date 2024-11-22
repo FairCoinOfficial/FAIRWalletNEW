@@ -52,8 +52,12 @@ export default function ReceiveScreen() {
   }, []);
 
   const copyToClipboard = () => {
-    Clipboard.setString(address);
-    alert("Address copied to clipboard!");
+    try {
+      Clipboard.setString(address);
+      alert("Address copied to clipboard!");
+    } catch (error) {
+      console.error("Error copying address to clipboard:", error);
+    }
   };
 
   return (

@@ -59,13 +59,25 @@ export default function SendScreen() {
         style={styles.input}
         placeholder="Recipient Address"
         value={recipientAddress}
-        onChangeText={setRecipientAddress}
+        onChangeText={(text) => {
+          try {
+            setRecipientAddress(text);
+          } catch (error) {
+            console.error("Error setting recipient address:", error);
+          }
+        }}
       />
       <TextInput
         style={styles.input}
         placeholder="Amount"
         value={amount}
-        onChangeText={setAmount}
+        onChangeText={(text) => {
+          try {
+            setAmount(text);
+          } catch (error) {
+            console.error("Error setting amount:", error);
+          }
+        }}
         keyboardType="numeric"
       />
       <Button mode="contained" onPress={handleSend}>

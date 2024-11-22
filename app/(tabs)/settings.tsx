@@ -33,6 +33,14 @@ export default function SettingsScreen() {
   const toggleNotifications = () =>
     setIsNotificationsEnabled((previousState) => !previousState);
 
+  const saveSettings = () => {
+    try {
+      console.log("Settings saved");
+    } catch (error) {
+      console.error("Error saving settings:", error);
+    }
+  };
+
   return (
     <ThemedView style={styles.container}>
       <ThemedText type="title">Settings</ThemedText>
@@ -51,7 +59,7 @@ export default function SettingsScreen() {
           value={isNotificationsEnabled}
         />
       </View>
-      <Button mode="contained" onPress={() => console.log("Settings saved")}>
+      <Button mode="contained" onPress={saveSettings}>
         Save Settings
       </Button>
     </ThemedView>

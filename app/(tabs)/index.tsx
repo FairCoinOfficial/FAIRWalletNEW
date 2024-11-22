@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, StyleSheet, Platform, View, FlatList } from "react-native";
+import { Image, StyleSheet, View, FlatList } from "react-native";
 
 type RootStackParamList = {
   Settings: undefined;
@@ -60,80 +60,89 @@ interface ParallaxScrollViewComponentProps {
 }
 
 const ParallaxScrollViewComponent = React.memo(
-  ({ navigation }: ParallaxScrollViewComponentProps) => (
-    <ParallaxScrollView
-      headerBackgroundColor={{ dark: "#A1CEDC", light: "#A1CEDC" }}
-      headerImage={
-        <Image
-          style={styles.reactLogo}
-          source={require("@/assets/images/react-logo.png")}
-        />
-      }
-    >
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome to FAIRWallet!</ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Get Started</ThemedText>
-        <ThemedText>
-          Edit{" "}
-          <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText>{" "}
-          to see changes. Press{" "}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: "cmd + d",
-              android: "cmd + m",
-              web: "F12",
-            })}
-          </ThemedText>{" "}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this wallet
-          app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Manage Your Faircoins</ThemedText>
-        <ThemedText>
-          Use the wallet to manage your faircoins securely and efficiently.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.buttonContainer}>
-        <Button
-          mode="contained"
-          onPress={() => navigation.navigate("Settings")}
-        >
-          Settings
-        </Button>
-        <Button
-          mode="contained"
-          onPress={() => navigation.navigate("FairCoinPrice")}
-        >
-          FairCoin Price
-        </Button>
-        <Button mode="contained" onPress={() => navigation.navigate("Wallet")}>
-          Wallet
-        </Button>
-      </ThemedView>
-      <ThemedView style={styles.transactionsContainer}>
-        <ThemedText type="subtitle">Recent Transactions</ThemedText>
-        <FlatList
-          data={recentTransactions}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <ThemedView style={styles.transactionItem}>
-              <ThemedText>{item.description}</ThemedText>
-              <ThemedText>{item.amount}</ThemedText>
-            </ThemedView>
-          )}
-        />
-      </ThemedView>
-    </ParallaxScrollView>
-  )
+  ({ navigation }: ParallaxScrollViewComponentProps) => {
+    let headerImageSource;
+    try {
+      headerImageSource = require("@/assets/images/react-logo.png");
+    } catch (error) {
+      console.error("Error loading header image:", error);
+      headerImageSource = null;
+    }
+
+    return (
+      <ParallaxScrollView
+        headerBackgroundColor={{ dark: "#A1CEDC", light: "#A1CEDC" }}
+        headerImage={
+          headerImageSource && (
+            <Image style={styles.reactLogo} source={headerImageSource} />
+          )
+        }
+      >
+        <ThemedView style={styles.titleContainer}>
+          <ThemedText type="title">Welcome to FAIRWallet!</ThemedText>
+        </ThemedView>
+        <ThemedView style={styles.stepContainer}>
+          <ThemedText type="subtitle">Step 1: Get Started</ThemedText>
+          <ThemedText>
+            Edit{" "}
+            <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText>{" "}
+            to see changes. Press{" "}
+            <ThemedText type="defaultSemiBold">
+              {Platform.select({
+                ios: "cmd + d",
+                android: "cmd + m",
+                web: "F12",
+              })}
+            </ThemedText>{" "}
+            to open developer tools.
+          </ThemedText>
+        </ThemedView>
+        <ThemedView style={styles.stepContainer}>
+          <ThemedText type="subtitle">Step 2: Explore</ThemedText>
+          <ThemedText>
+            Tap the Explore tab to learn more about what's included in this
+            wallet app.
+          </ThemedText>
+        </ThemedView>
+        <ThemedView style={styles.stepContainer}>
+          <ThemedText type="subtitle">Step 3: Manage Your Faircoins</ThemedText>
+          <ThemedText>
+            Use the wallet to manage your faircoins securely and efficiently.
+          </ThemedText>
+        </ThemedView>
+        <ThemedView style={styles.buttonContainer}>
+          <Button
+            mode="contained"
+            onPress={() => navigation.navigate("Settings")}
+          >
+            Settings
+          </Button>
+          <Button
+            mode="contained"
+            onPress={() => navigation.navigate("FairCoinPrice")}
+          >
+            FairCoin Price
+          </Button>
+          <Button mode="contained" onPress={() => navigation.navigate("Wallet")}>
+            Wallet
+          </Button>
+        </ThemedView>
+        <ThemedView style={styles.transactionsContainer}>
+          <ThemedText type="subtitle">Recent Transactions</ThemedText>
+          <FlatList
+            data={recentTransactions}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => (
+              <ThemedView style={styles.transactionItem}>
+                <ThemedText>{item.description}</ThemedText>
+                <ThemedText>{item.amount}</ThemedText>
+              </ThemedView>
+            )}
+          />
+        </ThemedView>
+      </ParallaxScrollView>
+    );
+  }
 );
 
 export default function HomeScreen() {

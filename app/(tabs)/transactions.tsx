@@ -56,6 +56,11 @@ export default function TransactionsScreen() {
             <ThemedText>{item.value}</ThemedText>
           </ThemedView>
         )}
+        ListEmptyComponent={<ThemedText>No transactions found.</ThemedText>}
+        onEndReachedThreshold={0.5}
+        onEndReached={() => {
+          console.log("End reached");
+        }}
       />
     </ThemedView>
   );
