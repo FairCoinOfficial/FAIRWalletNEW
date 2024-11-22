@@ -19,6 +19,7 @@
     "@react-native-clipboard/clipboard": "^1.15.0",
     "@react-navigation/bottom-tabs": "^7.0.0",
     "@react-navigation/native": "^7.0.0",
+    "@styled-icons/material-rounded": "^10.47.0",
     "axios": "^1.7.7",
     "Base64": "^1.1.0",
     "bip32": "^2.0.6",
