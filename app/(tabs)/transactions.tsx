@@ -23,21 +23,21 @@ const styles = StyleSheet.create({
   },
 });
 
+const fetchTransactions = async (setTransactions: React.Dispatch<React.SetStateAction<any[]>>) => {
+  try {
+    const userAddress = "your-faircoin-address"; // Replace with actual logic to fetch user's address
+    const txs = await BitcoinService.getTransactions(userAddress);
+    setTransactions(txs);
+  } catch (error) {
+    console.error("Error fetching transactions:", error);
+  }
+};
+
 export default function TransactionsScreen() {
   const [transactions, setTransactions] = useState([]);
 
   useEffect(() => {
-    const fetchTransactions = async () => {
-      try {
-        const userAddress = "your-faircoin-address"; // Replace with actual logic to fetch user's address
-        const txs = await BitcoinService.getTransactions(userAddress);
-        setTransactions(txs);
-      } catch (error) {
-        console.error("Error fetching transactions:", error);
-      }
-    };
-
-    fetchTransactions();
+    fetchTransactions(setTransactions);
   }, []);
 
   return (

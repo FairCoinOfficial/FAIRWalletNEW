@@ -23,16 +23,16 @@ const styles = StyleSheet.create({
 export default function FairCoinPriceScreen() {
   const [price, setPrice] = useState<number | null>(null);
 
-  useEffect(() => {
-    const fetchFairCoinPrice = async () => {
-      try {
-        const price = await getFairCoinPrice.getFairCoinPrice();
-        setPrice(price);
-      } catch (error) {
-        console.error("Error fetching FairCoin price:", error);
-      }
-    };
+  const fetchFairCoinPrice = async () => {
+    try {
+      const price = await getFairCoinPrice.getFairCoinPrice();
+      setPrice(price);
+    } catch (error) {
+      console.error("Error fetching FairCoin price:", error);
+    }
+  };
 
+  useEffect(() => {
     fetchFairCoinPrice();
   }, []);
 

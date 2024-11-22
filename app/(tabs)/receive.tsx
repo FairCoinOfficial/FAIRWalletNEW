@@ -35,21 +35,20 @@ const styles = StyleSheet.create({
   },
 });
 
+const fetchAddress = async (setAddress: React.Dispatch<React.SetStateAction<string>>) => {
+  try {
+    const userAddress = "your-faircoin-address"; // Replace with actual logic to fetch user's address
+    setAddress(userAddress);
+  } catch (error) {
+    console.error("Error fetching address:", error);
+  }
+};
+
 export default function ReceiveScreen() {
   const [address, setAddress] = useState("");
 
   useEffect(() => {
-    // Fetch the user's FairCoin address from the wallet service
-    const fetchAddress = async () => {
-      try {
-        const userAddress = "your-faircoin-address"; // Replace with actual logic to fetch user's address
-        setAddress(userAddress);
-      } catch (error) {
-        console.error("Error fetching address:", error);
-      }
-    };
-
-    fetchAddress();
+    fetchAddress(setAddress);
   }, []);
 
   const copyToClipboard = () => {
