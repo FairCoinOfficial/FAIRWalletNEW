@@ -33,7 +33,15 @@ export default function FairCoinPriceScreen() {
   };
 
   useEffect(() => {
-    fetchFairCoinPrice();
+    const fetchPrice = async () => {
+      try {
+        await fetchFairCoinPrice();
+      } catch (error) {
+        console.error("Error in useEffect:", error);
+      }
+    };
+
+    fetchPrice();
   }, []);
 
   return (
