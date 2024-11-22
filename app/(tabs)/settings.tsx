@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import { StyleSheet, View, Switch } from "react-native";
 import { Provider as PaperProvider, Text, Button } from "react-native-paper";
@@ -41,10 +42,7 @@ export default function SettingsScreen() {
       <SettingsIcon width={24} height={24} />
       <View style={styles.settingItem}>
         <ThemedText>Dark Mode</ThemedText>
-        <Switch
-          onValueChange={toggleDarkMode}
-          value={isDarkMode}
-        />
+        <Switch onValueChange={toggleDarkMode} value={isDarkMode} />
       </View>
       <View style={styles.settingItem}>
         <ThemedText>Enable Notifications</ThemedText>

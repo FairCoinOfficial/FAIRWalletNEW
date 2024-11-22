@@ -1,3 +1,4 @@
+import React from "react";
 import { Image, StyleSheet, Platform, View, FlatList } from "react-native";
 
 type RootStackParamList = {
