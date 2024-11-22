@@ -3,7 +3,7 @@ import { StyleSheet, FlatList } from "react-native";
 import { Provider as PaperProvider, Text } from "react-native-paper";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
-import { ReceiptLong as TransactionsIcon } from "@styled-icons/material-rounded/ReceiptLong";
+import { MaterialIcons as TransactionsIcon } from "@expo/vector-icons";
 import BitcoinService from "@/module/faircoin/FairCoinService";
 
 const styles = StyleSheet.create({
@@ -46,7 +46,7 @@ export default function TransactionsScreen() {
       <ThemedText style={styles.description}>
         View your transaction history below.
       </ThemedText>
-      <TransactionsIcon width={24} height={24} />
+      <TransactionsIcon name="receipt-long" size={24} />
       <FlatList
         data={transactions}
         keyExtractor={(item) => item.txid}

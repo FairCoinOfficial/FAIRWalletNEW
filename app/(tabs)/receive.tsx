@@ -4,7 +4,7 @@ import Clipboard from "@react-native-clipboard/clipboard";
 import { Provider as PaperProvider, Text, Button } from "react-native-paper";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
-import { Inbox as ReceiveIcon } from "@styled-icons/material-rounded/Inbox";
+import { MaterialIcons as ReceiveIcon } from "@expo/vector-icons";
 import BitcoinService from "@/module/faircoin/FairCoinService";
 
 const paperProvider = (
@@ -62,7 +62,7 @@ export default function ReceiveScreen() {
       <ThemedText style={styles.description}>
         Share your address to receive FairCoins.
       </ThemedText>
-      <ReceiveIcon width={24} height={24} />
+      <ReceiveIcon name="inbox" size={24} />
       <View style={styles.addressContainer}>
         <ThemedText style={styles.address}>{address}</ThemedText>
         <TouchableOpacity onPress={copyToClipboard}>

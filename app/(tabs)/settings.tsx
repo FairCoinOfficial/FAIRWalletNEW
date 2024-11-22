@@ -5,7 +5,7 @@ import { Provider as PaperProvider, Text, Button } from "react-native-paper";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 
-import { Settings as SettingsIcon } from "@styled-icons/material-rounded/Settings";
+import { MaterialIcons as SettingsIcon } from "@expo/vector-icons";
 
 const paperProvider = <PaperProvider />;
 
@@ -39,7 +39,7 @@ export default function SettingsScreen() {
       <ThemedText style={styles.description}>
         Configure your FAIRWallet settings below.
       </ThemedText>
-      <SettingsIcon width={24} height={24} />
+      <SettingsIcon name="settings" size={24} />
       <View style={styles.settingItem}>
         <ThemedText>Dark Mode</ThemedText>
         <Switch onValueChange={toggleDarkMode} value={isDarkMode} />

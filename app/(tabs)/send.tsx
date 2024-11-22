@@ -3,7 +3,7 @@ import { StyleSheet, TextInput, View } from "react-native";
 import { Button } from "react-native-paper";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
-import { Send as SendIcon } from "@styled-icons/material-rounded/Send";
+import { MaterialIcons as SendIcon } from "@expo/vector-icons";
 import BitcoinService from "@/module/faircoin/FairCoinService";
 
 const styles = StyleSheet.create({
@@ -54,7 +54,7 @@ export default function SendScreen() {
       <ThemedText style={styles.description}>
         Enter the recipient's address and the amount to send.
       </ThemedText>
-      <SendIcon width={24} height={24} />
+      <SendIcon name="send" size={24} />
       <TextInput
         style={styles.input}
         placeholder="Recipient Address"

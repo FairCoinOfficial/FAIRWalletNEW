@@ -5,11 +5,7 @@ import {
   BottomNavigation,
 } from "react-native-paper";
 
-import { Home as HomeIcon } from "@styled-icons/material-rounded/Home";
-import { RocketLaunch as RocketIcon } from "@styled-icons/material-rounded/RocketLaunch";
-import { Settings as CogIcon } from "@styled-icons/material-rounded/Settings";
-import { ShowChart as ChartLineIcon } from "@styled-icons/material-rounded/ShowChart";
-import { AccountBalanceWallet as WalletIcon } from "@styled-icons/material-rounded/AccountBalanceWallet";
+import { MaterialIcons } from "@expo/vector-icons";
 
 import { Colors } from "@/constants/Colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
@@ -54,15 +50,15 @@ export default function TabLayout() {
   }) => {
     switch (route.key) {
       case "home":
-        return <HomeIcon size={24} color={color} />;
+        return <MaterialIcons name="home" size={24} color={color} />;
       case "explore":
-        return <RocketIcon size={24} color={color} />;
+        return <MaterialIcons name="rocket" size={24} color={color} />;
       case "settings":
-        return <CogIcon size={24} color={color} />;
+        return <MaterialIcons name="settings" size={24} color={color} />;
       case "faircoin-price":
-        return <ChartLineIcon size={24} color={color} />;
+        return <MaterialIcons name="show-chart" size={24} color={color} />;
       case "wallet":
-        return <WalletIcon size={24} color={color} />;
+        return <MaterialIcons name="account-balance-wallet" size={24} color={color} />;
       default:
         return null;
     }
